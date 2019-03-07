@@ -4,12 +4,20 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 
-app = Flask("George Sand")
+import os
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///users/celinechampcourt/data.sqlite"
+chemin_actuel = os.path.dirname(os.path.abspath(__file__))
+templates = os.path.join(chemin_actuel, "templates")
+statics = os.path.join(chemin_actuel, "static")
+
+app = Flask("George Sand", template_folder=templates, static_folder=statics)
+
+app.config['DEBUG'] = True
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/celinechampcourt/application_george_sand/data-4.sqlite'
 db = SQLAlchemy(app)
 
-class lettre(db.Model):
+
+class Lettre(db.Model):
     lettre_id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True, autoincrement=True)
     titre = db.Column(db.Text, nullable=False)
     contenu = db.Column(db.Text, nullable=False)
@@ -17,13 +25,15 @@ class lettre(db.Model):
     date_norm = db.Column(db.Text, nullable=False)
     lettre_expediteur = db.Column(db.Text, db.ForeignKey('correspondant.id_correspondant'))
     lettre_destinataire=db.Column(db.Text, db.ForeignKey('correspondant.id_correspondant'))
+    depuis_lieu=db.Column(db.Text, db.ForeignKey('lieu.lieu_id'))
+    vers_lieu=db.Column(db.Text, db.ForeignKey('lieu.lieu_id'))
 
-class correspondant(db.Model):
+class Correspondant(db.Model):
     id_correspondant = db.Column(db.Integer, unique=True, nullable=False, primary_key=True, autoincrement=True)
     nom = db.Column(db.Text, nullable=False)
     prenom = db.Column(db.Text, nullable=False)
 
-class lieu(db.Model):
+class Lieu(db.Model):
     lieu_id=db.Column(db.Integer, unique=True, nullable=False, primary_key=True, autoincrement=True)
     label=db.Column(db.Integer, unique=True, nullable=False)
 
@@ -31,75 +41,11 @@ class lieu(db.Model):
 
 # Nous avons créé un dictionnaire des lettres de George Sand dans le fichier app.py
 
-lettres = {
-        0: {
-        "titre" : "Lettre 277",
-        "date" : "20 mai 1848",
-        "destinataire" : "Marc Caussidière",
-        "lieu_destinataire" :"Paris"
-         },
 
-         1: {
-        "titre" : "Lettre 278",
-        "date" : "24 mai 1848",
-        "destinataire" : "Théophile Thoré",
-        "lieu_destinataire" : "Paris"
-         },
-
-          2: {
-        "titre" : "Lettre 279",
-        "date" : "28 mai 1848",
-        "destinataire" : "Alexandre Ledru-Rollin",
-        "lieu_destinataire" : "Paris"
-         },
-
-         3:{
-        "titre" : "Lettre 280",
-        "date" : "28 mai 1848",
-        "destinataire" : "Théophile Thoré",
-        "lieu_destinataire" : "Paris"
-         },
-          4: {
-        "titre" : "Lettre 281",
-        "date" : "10 juin 1848",
-        "destinataire" : "Armand Barbès",
-        "lieu_destinataire" : "Vincennes"
-           },
-         5: {
-        "titre" : "Lettre 737",
-        "date" : "14 juillet 1870",
-        "destinataire" : "Edmond Plauchut",
-        "lieu_destinataire" : "Paris"
-         },
-         6: {
-        "titre" : "Lettre 738",
-        "date" : "14 juillet 1870",
-        "destinataire" : "Juliette Edmond Adam",
-        "lieu_destinataire" : "Paris"
-         },
-        7: {
-        "titre" : "Lettre 739",
-        "date" : "26 juillet 1870",
-        "destinataire" : "Gustave Flaubert",
-        "lieu_destinataire" : "Croisset"
-         },
-         8: {
-        "titre" : "Lettre 740",
-        "date" : "30 juillet 1870",
-        "destinataire" : "Marie-Sophie Leroyer de Chantepie",
-        "lieu_destinataire" : "Angers"
-        },
-         9: {
-        "titre" : "Lettre 741",
-        "date" : "8 août 1870",
-        "destinataire" : "Gustave Flaubert",
-        "lieu_destinataire" : "Croisset"
-         }
-        }
 @app.route("/")
 def accueil():
-    lettres=lettre.query.all()
-    return render_template("pages/accueil.html", nom = "Correspondance George Sand", lettres=lettres)
+    correspondances=Lettre.query.all()
+    return render_template("pages/accueil.html", nom = "Correspondance George Sand", correspondances=correspondances)
 
 # Nous avons utilisé la fonction render_template pour prendre le chemin du template ainsi que des arguments nommés pour le reste
 
@@ -109,13 +55,13 @@ def accueil():
 
 # On lance un serveur de test via app.run()
 
-@app.route("/index/<int:index_id>")
-def lettre(index_id):
-    unique_lettre=lettre.query.get(index_id)
-    return render_template("pages/index.html", nom="Index des lettres de George Sand", lettre=lettres[index_id])
+@app.route("/lettre/<int:lettre_id>")
+def correspondance(lettre_id):
+   unique_correspondance = Lettre.query.get(lettre_id)
+   return render_template("pages/lettre.html", nom="Index des lettres de George Sand", correspondance=unique_correspondance)
 
 
-if __name__ == "__main__" :
+if __name__ == "__main__":
 
-
+    db.create_all()
     app.run()
