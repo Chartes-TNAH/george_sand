@@ -1,0 +1,30 @@
+{% extends "conteneur.html" %}
+{% block corps %}
+<!-- Voici le code HTML de la page d'accueil de notre site -->
+
+<h1>Bienvenue sur l'application des correspondances de George Sand de 1848 à 1870 !</h1>
+<!-- Nous avons ici créé des conditions avec des "if" et une boucle avec un "for".
+Nous nous sommes servi de cette page d'accueil pour faire un index
+Nous avons utilisé url_for () pour faire des liens vers l'index et les lettres.-->
+
+<p>L'application George Sand a été créée dans le cadre d'un projet python par deux élèves du Master 2 Technologies
+    Numériques Appliquées à l'Histoire de l'Ecole Nationale des Chartes </p>
+
+<p>
+    {% if correspondances %}
+    <u><b> Il y a {{ correspondances |length }} lettres enregistrées :</b></u>
+    <ul>
+        {% for correspondance in correspondances %}
+            <li><a href="{{url_for('correspondance', lettre_id=correspondance.lettre_id)}}">{{correspondance.titre}}</a></li>
+
+    {% endfor %}
+    </ul>
+
+<h5>Les lettres 277 à 281 proviennent des volumes <a href="https://gallica.bnf.fr/ark:/12148/bpt6k206545v">III</a> et <a href="https://gallica.bnf.fr/ark:/12148/bpt6k2065480">VI</a> de<i> Correspondance : 1812-1876</i>, un recueil disponible en
+        ligne sur le site de Gallica, bibliothèque numérique de la Bibliothèque Nationale de France.  </h5>
+    {% else %}
+    La base de données est en cours de constitution
+    {% endif %}
+</p>
+
+{% endblock %}
