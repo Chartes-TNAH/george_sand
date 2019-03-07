@@ -1,0 +1,22 @@
+{% extends "conteneur.html" %}
+{% block corps %}
+<!-- Voici le code HTML de la page d'accueil de notre site -->
+
+<!-- Nous avons ici créé des conditions avec des "if" et une boucle avec un "for".
+Nous nous sommes servi de cette page d'accueil pour faire un index
+Nous avons utilisé url_for () pour faire des liens vers l'index et les lettres.-->
+
+<p>
+    {% if lettres %}
+        Il y a {{ lettres|length }} enregistrées :
+    <ul>
+        {% for lettre_id, lettre in lettres.items() %}
+            <li><a href="{{url_for('lettre', index_id=lettre_id)}}">{{lettre.titre}}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    La base de données est en cours de constitution
+    {% endif %}
+</p>
+
+{% endblock %}

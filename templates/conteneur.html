@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <title>George Sand {%block titre %}{%endblock%}</title>
+         {% include "partials/css.html" %}
+         {% include "partials/metadata.html" %}
+
+
+    </head>
+
+
+        <!-- Nous avons créé un conteneur html qui détermine la disposition des différents blocs
+         (bloc titre et bloc corps)
+        et que l'on a étendu à certaines pages html que nous avons réalisées -->
+
+
+    <body>
+<div class="container">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="{{ url_for('accueil') }}">George Sand</a>
+    </nav>
+    <div class="row">
+        <div class="col">
+            {% block corps%}{%endblock%}
+        </div>
+    </div>
+</div>
+    </body>
+</html>
