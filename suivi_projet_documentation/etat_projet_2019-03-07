@@ -1,0 +1,14 @@
+**Etat du projet à la date du 07 mars 2019**
+
+_**Mises au point concernant GitHub**_
+
+Nous avons créé une nouvelle branche appelée "develpment_project" sur laquelle nous avons transversé la totalité de notre application (application_george_sand).
+La création de cette nouvelle branche nous a paru nécessaire afin de faire nos modifications le temps de terminer la totalité de notre application et de remplir tous les objectifs que nous nous étions fixés au départ. 
+En effet, notre projet commence à ce moment à prendre de plus en plus d'ampleur. Nous avions en tête de créer une page recherche qui pouvait nous amener à générer des erreurs sur notre application.
+
+_**Correction des erreurs, mise en route de notre application**_
+
+Nous avons créé à ce stade de nouveaux fichiers (init.py, routes.py). Nous avons renommé notre fichier 'app.py' en 'run.py' et nous avons modifié le script path (/Users/celinechampcourt/application_george_sand/run.py) pour faire runner notre application sur le fichier run.py et non plus sur le fichier app.py.
+Bien entendu, la totalité des fichiers créés ont été modifés en ce sens et sauvegardés par des commit et des push sur git sur notre branche development_project et master car notre application application fonctionnait très bien sur le serveur.
+
+Nous avons également 

@@ -1,0 +1,20 @@
+**Etat du projet à la date du 05 mars 2019**
+
+
+<b>_Réalisation de notre base de données en Python via MySQLAlchemy_</b>
+
+Nous avons défini une base de données vide intitulée "george_sand.sqlite".
+
+Nous avons créé un nouveau dossier "models" où nous avons ajouté nos modèles pour chacune de nos tables sous forme de classes.
+
+Nous avons également créé un fichier nommé data.sql où nous avons réécrit nos requêtes pour l'insertion des données dans chaque table.
+
+<b>_Création d'un repository sur GitHub_</b>
+
+Nous avons créé sur le compte Chartes-TNAH un repository appelé (par mégarde) Georges-Sand, et vers lequel nous avions fait des push.
+
+Après nous être rendues compte de notre erreur, nous avons modifié l'orthographe de notre repository ce qui a induit la création d'un nouveau repository intitulé "George Sand".
+
+A ce moment-là, nous ne travaillions que sur une seule branche, la branche master par défaut. En réalité, dès le départ, ce choix était parfaitement calculé, car nous n'étions que deux sur notre projet, et nous travaillions toujours depuis le même ordinateur, et simulanément.
+ Ce qui, nous le pensions alors, ne nécessitait pas la création d'une seconde branche. Par ailleurs, comme nous avons pris l'habitude de nous concerter avant toute décision, nous n'avons pas jugé nécessaire, du moins dans un premier temps, de créer une deuxième branche
+ pour travailler sur notre projet.

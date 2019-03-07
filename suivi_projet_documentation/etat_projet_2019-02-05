@@ -1,0 +1,34 @@
+**Etat du projet à la date du 06 février 2019**
+
+<b>_Formation du groupe_</b>
+
+Notre groupe se compose de Diane Alliaume et Céline Champcourt.
+
+<b>_Genèse du projet_</b>
+
+Présentation du projet, réflexions sur l'aspect et les fonctionnalités de notre application avec monsieur 
+Thibault Clérice, professeur de Python, Javascript, responsable du master Technologies Numériques Appliquées à l'Histoire à l'Ecole Nationale des Chartes.
+
+<i><u><b>Les objectifs de notre base de données :</b></u></i>
+
+I - Enregistrement de chaque lettre de la correspondance de George Sand.
+
+II - Possibilité de lire les lettres unes à unes
+
+III - Mettre en place une recherche dans les lettres par dates, destinataires ou lieux.
+
+VI - Réalisation d'une page à propos.
+
+V - Mise en ligne sur Heroku 
+
+<b>Mise au point sur l'avancée du projet</b>
+<p>
+A ce jour du 05 février, nous avons commencé par la transformation des lettres au format HTML avec des 
+balises div, p, i, br.</p>
+</br>
+Nous avons également commencé à travailler sur une base de données sous DB Browser for SQLite, et à réaliser des tables mais nous avons très rapidement rencontré des difficultés à définir notre base de données et à réaliser les clés étrangères.
+En effet c'était pour nous la première qu'on créait une base de données ex nihilo. Nous avons réalisé un modèle conceptuel sur MySQLWorkbench pour 
+bien visualiser nos données et réfléchir sur les relations entre nos tables qui étaient, dès le départ, au nombre de 5 :
+ une table lettres, une table correspondants et une table lieux, et deux tables d'association (envoyé à et envoyé vers).
+
+
