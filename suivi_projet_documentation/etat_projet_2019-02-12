@@ -12,7 +12,7 @@ De la même manière, nous avions placé comme attribut de la table lettre le li
 <b>_Phase de recherches_</b>
 
 Ces réflexions nous ont conduites à nous documenter, à la fois sur le Web, mais aussi à la bibliothèque de l'Ecole.
-Nous avons ansi consulté _Python pour les Nuls_ par John Paul Mueller (2018) et _Learning Python_ par Marc Lutz (2007). Notre souhait était de mieux appréhender l'intégration d'une base de données dans une application développée sur Python, en plus des cours que nous avons reçus à l'Ecole.
+Nous avons ansi consulté _Python pour les Nuls_ par John Paul Mueller (2018) et _Learning Python_ par Marc Lutz (2007). Le premier de ces deux ouvrages ne nous a absolument pas aidées, car les bases de données sous SQLAlchemy étaient seulement mentionnées mais à aucun moment réellement expliquées. Notre souhait était de mieux appréhender l'intégration d'une base de données dans une application développée sur Python, en plus des cours que nous avons reçus à l'Ecole.
 
 Nous avons tenté de trouver de l'aide dans notre entourage (en vain). Nous avons donc entrepris seules ce projet.
 
