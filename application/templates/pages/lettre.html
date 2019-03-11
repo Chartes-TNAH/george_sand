@@ -19,9 +19,10 @@
 
             <h1>{{correspondance.titre}}</h1>
             <dl>
-               <dt>Expéditeur</dt> <dd>George Sand</dd>
+               <dt>Expéditeur</dt> <dd>Sand, George</dd>
                 <dt>Date</dt> <dd>{{correspondance.date_label}}</dd>
                 <dt>Destinataire</dt> <dd>{{correspondance.correspondant.nom}}, {{correspondance.correspondant.prenom}}</dd>
+                <dt>Lieu d'expédition</dt> <dd>{{correspondance.lieu.label}}</dd>
                 <dt>Contenu</dt> <dd>{{correspondance.contenu}}</dd>
             </dl>
 

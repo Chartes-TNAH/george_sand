@@ -2,7 +2,8 @@
 # Avant toute chose, nous avons installé flask-sqlalchemy via le terminal de l'environnement virtuel sur PyCharm.
 # Nous avons importé Flask afin de faire fonctionner notre application
 # Nous avons importé également la fonction render_template depuis le module flask
-from flask import Flask
+from flask import Flask, request
+
 # Nous avons ensuite importé SQLAlchemy afin de pouvoir travailler sur notre base de données via notre application Python.
 from flask_sqlalchemy import SQLAlchemy
 
