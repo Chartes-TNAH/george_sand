@@ -1,15 +1,12 @@
-{% extends "conteneur.html" %}
-
-{% block titre %}| Navigation : Page {{resultats.page}}{%endblock%}
 
 {% block corps %}
 
     <h1>Navigation</h1>
     {% if results %}
-        <p>Il y a {{results.total}} lettres qui correspondent à votre recherche :</p>
+        <p>Il y a {{results|length}} lettres qui correspondent à votre recherche :</p>
         <ul>
-            {% for lettre in results.items %}
-                <li><a href="{{url_for('lettre', lettre_id=lettre.lettre_id)}}">{{lettre.titre}}</a></li>
+            {% for correspondance in results %}
+                <li><a href="{{url_for('correspondance', lettre_id=correspondance.lettre_id)}}">{{correspondance.titre}}</a></li>
             {% endfor %}
         </ul>
     <nav aria-label="research-pagination">
