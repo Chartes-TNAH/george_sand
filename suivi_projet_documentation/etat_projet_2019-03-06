@@ -1,0 +1,8 @@
+**Etat du projet à la date du 06 mars 2019**
+
+<b>_Habillage de l'application : réflexions et actions_</b>
+
+Nous avons importé deux dossiers téléchargés sur bootsrap : css et js, que nous avons placés dans un dossier appelé "static", lui-même descendant du dossier "templates".
+Nous avons ensuite modifié quelques points dans notre fichier css.html (contenu dans le dossier "partials", à l'intérieur du dossier "templates"), lié au fichier bootstrap.css et notamment corrigé un bug au niveau de notre navbar qui cachait les premières lignes de la page. 
+Ainsi, nous avons changé le code "fixed-top" par "float-top" ce qui a corrigé notre problème.
+

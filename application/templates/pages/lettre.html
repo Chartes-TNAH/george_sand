@@ -16,11 +16,12 @@
 <br/>
 <br/>
 <br/>
+
             <h1>{{correspondance.titre}}</h1>
             <dl>
-               <dt>Expéditeur</dt> <dd>{{correspondance.lettre_expediteur}}</dd>
+               <dt>Expéditeur</dt> <dd>George Sand</dd>
                 <dt>Date</dt> <dd>{{correspondance.date_label}}</dd>
-                <dt>Destinataire</dt> <dd>{{correspondance.lettre_destinataire}}</dd>
+                <dt>Destinataire</dt> <dd>{{correspondance.correspondant.nom}}, {{correspondance.correspondant.prenom}}</dd>
                 <dt>Contenu</dt> <dd>{{correspondance.contenu}}</dd>
             </dl>
 
