@@ -1,10 +1,13 @@
+#
 from flask import render_template, request, url_for
-# Nous avons ici importer url_for pour créer des URL qui renvoient à nos fonctions et à nos pages HTML
+# Nous avons ici importé url_for pour créer des URL qui renvoient à nos fonctions et à nos pages HTML
 from .main import app
 from .models.lettres import Lettre
 from .models.lieux import Lieu
 from .models.correspondants import Correspondant
 from sqlalchemy import and_, or_
+
+# Nous avons défini une route en précédent une fonction de '@app.route'
 
 @app.route("/")
 def accueil():
@@ -62,3 +65,7 @@ def search():
 @app.route("/results")
 def results():
     return render_template("pages/results.html")
+
+@app.route("/contact")
+def contact():
+    return render_template('pages/contact.html')

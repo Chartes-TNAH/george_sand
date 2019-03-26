@@ -1,0 +1,38 @@
+{% extends "conteneur.html" %}
+
+{% block titre %}
+<h1>Contact</h1>
+{% endblock %}
+
+{% block corps %}
+
+<br/>
+
+<p class="text-dark bg-light"> <b><u>Organisateur/organisatrice du projet</u></b><br/>
+    Master 2 TNAH
+    Ecole Nationale des Chartes</br>
+    65 Rue de Richelieu</br>
+    75002 Paris</br>
+    </br>
+ </p>
+</br>
+<p class="text-dark bg-light"> <b><u>Développeur/développeuse du projet</u></b><br/>
+    Céline Champcourt</br>
+    Ecole Nationale des Chartes</br>
+    celine.champcourt@chartes.psl.eu</br>
+    </br>
+ </p></br>
+<p class="text-dark bg-light"> <b><u>Développeur/développeuse du projet</u></b><br/>
+    Diane Alliaume</br>
+    Ecole Nationale des Chartes</br>
+    diane.alliaume@chartes.psl.eu</br>
+    </br>
+ </p>
+
+<div class="row" style="padding-top:5% ; padding-left: 10%" >
+           <a href="http://www.chartes.psl.eu/fr/cursus/master-technologies-numeriques-appliquees-histoire"><img src="{{ url_for('static', filename='pictures/logo-ecole-nationale-des-chartes.png')}}" class="img-thumbnail"></a>
+</div>
+
+</br></br>
+
+{% endblock %}

@@ -6,7 +6,7 @@
         <p>Il y a {{results|length}} lettres qui correspondent à votre recherche :</p>
         <ul>
             {% for correspondance in results %}
-                <li><a href="{{url_for('correspondance', lettre_id=correspondance.lettre_id)}}">{{correspondance.titre}}</a></li>
+              <li><a href="{{url_for('lettre', lettre_id=correspondance.lettre_id) }}">{{lettre.titre}}</a></li>
             {% endfor %}
         </ul>
     <nav aria-label="research-pagination">
@@ -14,8 +14,9 @@
         {%- for page in results.iter_pages() %}
             {% if page %}
               {% if page != results.page %}
+          <!-- Nous renseignons grâce à url_for la page où s'affichent nos résultats.-->
                 <li class="page-item">
-                    <a class="page-link" href="{{ url_for("results", page=page) }}">{{page}}</a>
+                    <a class="page-link" href="{{ url_for("results", page = page) }}">{{page}}</a>
                 </li>
               {% else %}
                 <li class="page-item active disabled">
