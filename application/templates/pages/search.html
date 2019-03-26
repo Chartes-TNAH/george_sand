@@ -1,0 +1,43 @@
+
+
+{% extends "conteneur.html" %}
+
+{% block titre %}| {{titre}}{%endblock%}
+
+{% block corps %}
+
+    <h1>{{titre}}</h1>
+    {% if results %}
+        <p>Il y a {{results|length}} lettres qui correspondent à votre recherche :</p>
+        <ul>
+            {% for correspondance in results.items %}
+            <li><a href="{{url_for('lettre', lettre_id=correspondance.lettre_id) }}">{{lettre.titre}}</a></li>
+            {% endfor %}
+        </ul>
+    <nav aria-label="research-pagination">
+      <ul class="pagination">
+        {%- for page in results %}
+            {% if page %}
+
+              {% if page != results.page %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ url_for("search", keyword=keyword, page=page) }}">{{page}}</a>
+                </li>
+              {% else %}
+                <li class="page-item active disabled">
+                  <a class="page-link">{{page}} <span class="sr-only">(actuelle)</span></a>
+                </li>
+              {% endif %}
+
+            {% else %}
+                <li class="page-item disabled">
+                  <a class="page-link">...</a>
+                </li>
+            {% endif %}
+
+        {%- endfor %}
+      </ul>
+    </nav>
+    {% endif %}
+{% endblock %}
+

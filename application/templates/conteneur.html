@@ -8,15 +8,7 @@
          {% include "partials/metadata.html" %}
 
         <style type="text/css">
-            .hero {
-            background-position: center-center;
-            padding:10vh;
-            background-image: url({{url_for("static", filename="pictures/background_navbar.jpg")}});
 
-            }
-            .container .hero {
-            background-image: none;
-            }
 
         </style>
 
@@ -29,6 +21,7 @@
 
 
     <body>
+
 <div class="container">
     <nav class="navbar navbar-expand-md navbar-light float-top" style="background-color:#ddd;">
         <a class="navbar-brand" href="{{ url_for('accueil') }}">Correspondances de George Sand, 1848-1870 </a>
@@ -37,10 +30,12 @@
   </button>
     <ul><li><a href="/">Accueil</a></li></ul>
     <ul><li><a href="/about">A propos</a></li></ul>
+        <ul><li><a href="/contact">Contact</a></li></ul>
 
-<form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+<form class="form-inline my-2 my-lg-0" action="{{url_for("search")}}" method="GET">
+      <input class="form-control mr-sm-2" type="search" name="keyword" type="text" placeholder="Faire une recherche" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><img src="/static/pictures/GS_icone.jpg" class="rounded" alt="Responsive image" width="100px">
+ </button>
     </form>
     </nav>
 </br>

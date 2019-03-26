@@ -1,27 +1,28 @@
 {% extends "conteneur.html" %}
 
 {% block titre %}
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
 
+<!-- Cette page contient le code qui permet d'afficher chacune des lettres selon la structure que nous avons définie -->
         {%if correspondance %} | Lettre : {{correspondance.titre}} {% endif %}
 {% endblock %}
 
 {% block corps %}
     {% if correspondance %}
-<br/>
-<br/>
-<br/>
 
+<!-- Ici, nous posons une condition. Si nous avons des éléments dans notre base, alors ce qui est contenu dans
+ if correspondance va s'exécuter, autrement, le else est exécuté et renvoie un message d'avertissement -->
+<br/>
+<br/>
+<br/>
+<!-- Nous avons décidé d'afficher de renseigner les lettres comme suit : titre, expéditeur, date, destinataire,
+lieu d'expédition, lieu d'envoi, et enfin le contenu de la lettre -->
             <h1>{{correspondance.titre}}</h1>
             <dl>
-               <dt>Expéditeur</dt> <dd>George Sand</dd>
+               <dt>Expéditeur</dt> <dd>Sand, George</dd>
                 <dt>Date</dt> <dd>{{correspondance.date_label}}</dd>
                 <dt>Destinataire</dt> <dd>{{correspondance.correspondant.nom}}, {{correspondance.correspondant.prenom}}</dd>
+                <dt>Lieu d'expédition</dt> <dd>{{correspondance.lieu.label}}</dd>
+                <dt>Lieu d'envoi</dt> <dd>Nohant</dd>
                 <dt>Contenu</dt> <dd>{{correspondance.contenu}}</dd>
             </dl>
 
