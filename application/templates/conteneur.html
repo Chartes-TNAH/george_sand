@@ -8,8 +8,6 @@
          {% include "partials/metadata.html" %}
 
         <style type="text/css">
-
-
         </style>
 
     </head>
@@ -34,7 +32,8 @@
 
 <form class="form-inline my-2 my-lg-0" action="{{url_for("search")}}" method="GET">
       <input class="form-control mr-sm-2" type="search" name="keyword" type="text" placeholder="Faire une recherche" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><img src="/static/pictures/GS_icone.jpg" class="rounded" alt="Responsive image" width="100px">
+      <input class="form-control mr-sm-2" type="search" name="date" type="text" placeholder="date" aria-label="Date">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><img src="/static/pictures/GS_icone.jpg" class="rounded" alt="Responsive image" width="100px">
  </button>
     </form>
     </nav>
