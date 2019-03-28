@@ -20,10 +20,10 @@ Nous avons utilisé url_for () pour faire des liens vers chacune de nos lettres.
     <ul>
         {% for correspondance in correspondances %}
     <!-- correspondance est une fonction définie dans la page routes.py. Le lien url renvoie vers la page lettre.html-->
-    <!-- Nous faisons ici des renvois aux informations contenues dans nos classes (tables).
-    Il est à noté que le titre des lettres correspond à leur numéro (ex : lettre 277) -->
+    <!-- Nous faisons ici des renvois aux informations contenues dans nos classes (tables). -->
+    <!-- Il est à noté que le titre des lettres correspond à leur numéro (ex : lettre 277) -->
     <!-- Quand il clique sur l'un des titres l'utilisateur est redirigé vers la lettre en question-->
-            <li><a href="{{url_for('correspondance', lettre_id=correspondance.lettre_id)}}">{{correspondance.titre}}</a></li>
+            <li><a href="{{url_for('correspondance', lettre_id = correspondance.lettre_id)}}">{{correspondance.titre}}</a></li>
     {% endfor %}
     </ul>
 

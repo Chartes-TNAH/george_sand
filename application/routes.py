@@ -62,6 +62,7 @@ def search():
             ).order_by(Lettre.titre.asc()).all()
             titre = "Résultat pour la recherche `" + motclef + "`"
 
+
         return render_template("pages/search.html", results=results, titre=titre, keyword = motclef)
 
 @app.route("/results")
