@@ -35,6 +35,8 @@ def search():
         # On préfèrera l'utilisation de .get() ici
         #   qui nous permet d'éviter un if long (if "clef" in dictionnaire and dictonnaire["clef"])
         motclef = request.args.get("keyword", None)
+        date = request.args.get("date", None)
+
         page = request.args.get("page", 1)
 
         if isinstance(page, str) and page.isdigit():
