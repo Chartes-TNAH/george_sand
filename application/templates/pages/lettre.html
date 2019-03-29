@@ -3,6 +3,8 @@
 {% block titre %}
 
 <!-- Cette page contient le code qui permet d'afficher chacune des lettres selon la structure que nous avons définie -->
+
+<!-- This page contains a code to display each letter with a specific structure -->
         {%if correspondance %} | Lettre : {{correspondance.titre}} {% endif %}
 {% endblock %}
 
@@ -11,11 +13,18 @@
 
 <!-- Ici, nous posons une condition. Si nous avons des éléments dans notre base, alors ce qui est contenu dans
  if correspondance va s'exécuter, autrement, le else est exécuté et renvoie un message d'avertissement -->
+
+<!-- if correspondance is a condition. If there is at least one element is in the database, then what's in
+ if correspondance is going to be executed, otherwise the else is executed and sends back an error message -->
+
 <br/>
 <br/>
 <br/>
-<!-- Nous avons décidé d'afficher de renseigner les lettres comme suit : titre, expéditeur, date, destinataire,
+<!-- Nous avons décidé d'afficher et donc de renseigner les lettres comme suit : titre, expéditeur, date, destinataire,
 lieu d'expédition, lieu d'envoi, et enfin le contenu de la lettre -->
+
+<!-- The choice was made to display letters using information in our database like so : sender, date,
+recipient, place of receipt, place of sending, et then the entire letter -->
             <h1>{{correspondance.titre}}</h1>
             <dl>
                <dt>Expéditeur</dt> <dd>Sand, George</dd>
@@ -30,5 +39,5 @@ lieu d'expédition, lieu d'envoi, et enfin le contenu de la lettre -->
     {% else %}
             <p>La base de données est en cours de constitution</p>
     {% endif %}
-    <p><a href="{{url_for('accueil')}}">Retour à l'accueil</a></p>
+    <p><a href="{{url_for('accueil')}}"> Retour à l'accueil</a></p>
 {% endblock %}
