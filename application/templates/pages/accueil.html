@@ -4,19 +4,22 @@
 {% block corps %}
 <!-- Voici le code HTML de la page d'accueil de notre site -->
 
-<h1>Bienvenue sur l'application des correspondances de George Sand de 1848 à 1870 !</h1>
-
-<!-- Nous avons ici créé des conditions avec des "if" et une boucle avec un "for".
+<!-- Here is the HTML code for the home page ("accueil") -->
+<h1><i><style="align">Correspondances de George Sand de 1848 à 1870.</i></h1>
+<hr>
+<!-- Nous avons ici créé des conditions avec un "if" et une boucle avec un "for".
 Nous avons utilisé url_for () pour faire des liens vers chacune de nos lettres.-->
 
+<!-- To display a list of links to our letters, we created conditions with an "if" and a loop with a "for"-->
+<!-- Then we used url_for() to give the link sending back each and every letter -->
 
-
-<p>L'application George Sand a été créée dans le cadre d'un projet python par deux élèves du Master 2 Technologies
+<p>Cette application a été créée dans le cadre d'un projet python/flask par deux élèves du Master 2 Technologies
     Numériques Appliquées à l'Histoire de l'Ecole Nationale des Chartes </p>
 
 <p>
     {% if correspondances %}
-    <u><b> Il y a {{ correspondances |length }} lettres enregistrées :</b></u>
+
+    <u><b> Il y a {{ correspondances | length }} lettres enregistrées à ce jour :</b></u>
     <ul>
         {% for correspondance in correspondances %}
     <!-- correspondance est une fonction définie dans la page routes.py. Le lien url renvoie vers la page lettre.html-->
@@ -24,12 +27,34 @@ Nous avons utilisé url_for () pour faire des liens vers chacune de nos lettres.
     <!-- Il est à noté que le titre des lettres correspond à leur numéro (ex : lettre 277) -->
     <!-- Quand il clique sur l'un des titres l'utilisateur est redirigé vers la lettre en question-->
             <li><a href="{{url_for('correspondance', lettre_id = correspondance.lettre_id)}}">{{correspondance.titre}}</a></li>
+
     {% endfor %}
     </ul>
+   <div class="alert alert-secondary" role="alert">
+       <!-- Grâce à l'import du filtre "random", nous avons écrit une phrase dynamique -->
+       <!-- Le filtre random applique un traitement à notre variable correspondance -->
+       <!-- Cela nous permet de proposer une lettre au hasard à nos utilisateurs -->
+
+       <!-- We imported the "random" filter, thanks to which we were able to write a dynamic sentence -->
+       <!-- The random filter applies a treatment to the correspondaces variable -->
+       <!-- Thus we can select a random letter -->
+       <b> <h5>Nous vous proposons la lecture de la <b>{{ correspondances | random }}</b> aujourd'hui ! </h5></b></div>
+
+<hr>
+<h3>Souhaitez-vous rechercher une lettre en saisissant une date ?</h3>
+<form class="form-inline my-2 my-lg-0" action="{{url_for("search")}}" method="GET">
+      <input class="form-control mr-sm-2" type="search" name="date" type="text" placeholder="date" aria-label="Date">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
+ </button>
+    </form>
+<hr>
+
+</br>
 
 <img src="/static/pictures/GS_Gallica.png" class="rounded" alt="Responsive image" width="200px">
         <p>George Sand, portrait par Delacroix, Collection M. Buloz, dans le Monde Illustré du 16 août 1884, BNF, Gallica (<a href="https://gallica.bnf.fr/ark:/12148/bpt6k6447570t/f4.item">source</a>) </p>
 
+<hr>
 
 
 <h5>Les lettres 277 à 281 proviennent des volumes <a href="https://gallica.bnf.fr/ark:/12148/bpt6k206545v">III</a> et <a href="https://gallica.bnf.fr/ark:/12148/bpt6k2065480">VI</a> de<i> Correspondance : 1812-1876</i>, un recueil disponible en

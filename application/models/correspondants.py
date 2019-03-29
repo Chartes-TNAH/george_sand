@@ -2,6 +2,8 @@ from application.main import db
 
 
 # Nous avons ici créé une première classe (table) pour notre base de données.
+
+# This is the first class (table) of our database
 class Correspondant(db.Model):
     __tablename__ = "correspondant"
     id_correspondant = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)

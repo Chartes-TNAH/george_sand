@@ -4,6 +4,8 @@ from sqlalchemy.orm import relationship
 
 # Nous avons ici créé une seconde classe (table) pour notre base de données.
 
+# This is the second class (table) of our database
+
 class Lettre(db.Model):
     __tablename__ = "lettre"
     lettre_id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)

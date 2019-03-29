@@ -8,6 +8,12 @@
  quant à l'habillage du site -->
 
 
+<!-- Here is the html code for the about ("à propos") page -->
+<!-- For each page in html format which appears in our application -->
+<!-- we are using a predefine blocks system and css allowed by bootstrap (see the css folder called static) -->
+<!-- feel free to visit the container page ("conteneur.html") for more details about the choices we made
+ regarding the appearance of our application -->
+
 {% extends "conteneur.html" %}
 
 {% block titre %}
@@ -17,18 +23,20 @@
 {% block corps %}
 
 
-<h1>A propos</h1>
+<h1><i>A propos</i></h1>
 
 <p> L'application <i>Correspondances de George Sand, 1848-1870</i> a été réalisée par Céline Champcourt et Diane Alliaume, étudiantes en deuxième année de master Technologies Numériques appliquées à l'Histoire, dispensé par l'Ecole Nationale des Chartes. </p>
-
+<p> Nous remercions nos professeurs <b>Monsieur Thibaut Clérice</b>, <b>Monsieur Julien Pilla</b> et <b>Monsieur Vincent Jolivet</b> de leurs précieux conseils, car sans eux cette application
+n'aurait jamais vu le jour.</p>
 <div class="row" style="padding-top:5% ; padding-left: 10%" >
            <a href="http://www.chartes.psl.eu/fr/cursus/master-technologies-numeriques-appliquees-histoire"><img src="{{ url_for('static', filename='pictures/logo-ecole-nationale-des-chartes.png')}}" class="img-thumbnail"></a>
 </div><br/>
 
-<p class="text-light bg-dark"> <b><u>Cette petite application permet à la fois :</u></b><br/>
-    - l'affichage de 10 lettres provenant de la Correspondance de George Sand entre 1848 et 1870</br>
-    - une recherche plein texte</br>
-    - une recherche dans les lettres par dates</br>
+<p class="text-light bg-dark rounded"><br> <b>&nbsp; &nbsp; &nbsp; <u>Cette petite application a deux objectifs principaux :</u></b><br/>
+    &nbsp; &nbsp;- proposer un outil permettant l'affichage de 10 lettres provenant de la Correspondance de George Sand entre 1848 et 1870</br>
+    &nbsp; &nbsp;- permettre une recherche à l'intérieur des lettres </br></br>
+   &nbsp; &nbsp; &nbsp;  Mais nous vous proposons également une lettre différente à lire à chaque fois que vous raffraîchissez la page d'accueil !</br></br>
+
  </p>
 
 {% endblock %}
