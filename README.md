@@ -7,6 +7,8 @@ Application : Correspondances de George Sand, 1840-1870
 
 *Tous les contenus originaux sont sous licence CC BY-NC-SA 4.0, les ressources extérieures (comme bootstrap) sont sous leur licence respective*
 
+![Screenshot](appgs1.png)
+
 
 Ce document contient l’ensemble des procédures d'installation des logiciels nécessaires pour démarrer l'application des Correspondance de George Sand, 1840-1870.
 
