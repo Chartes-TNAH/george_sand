@@ -41,6 +41,7 @@ def correspondance(lettre_id):
 # Voici la route permettant la recherche plein-texte
 
 # Here is the route leading to a full-text search
+
 @app.route("/search")
 def search():
         """ Route permettant la recherche plein-texte
