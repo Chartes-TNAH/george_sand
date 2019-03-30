@@ -7,6 +7,7 @@ from .models.lettres import Lettre
 from .models.lieux import Lieu
 from .models.correspondants import Correspondant
 from sqlalchemy import and_, or_
+from datetime import datetime
 import random
 
 # Nous avons défini une route en précédant une fonction de '@app.route'
@@ -49,7 +50,12 @@ def search():
 
         # .get() is a way to avoid writing a long "if" (if "key" in dictionary and dictionary["key"])
         motclef = request.args.get("keyword", None)
+
         date = request.args.get("date", None)
+
+        person = request.args.get("person", None)
+
+        lieu = request.args.get("lieu", None)
 
         page = request.args.get("page", 1)
 
@@ -59,28 +65,30 @@ def search():
             page = 1
 
         results = []
-        resultats=[]
+
         titre = "Recherche"
 
-        if motclef:
+        if motclef or date or person or lieu :
             results = Lettre.query.outerjoin(Correspondant).outerjoin(Lieu).filter(
                 or_(
                     Lettre.titre.like("%{}%".format(motclef)),
-                    Lettre.date_label.like("%{}%".format(motclef)),
+                    Lettre.date_label.like("{}".format(motclef)),
                     Lettre.contenu.like("%{}%".format(motclef)),
                     Lettre.date_norm.like("%{}%".format(motclef)),
                     Correspondant.nom.like("%{}%".format(motclef)),
                     Correspondant.prenom.like("%{}%".format(motclef)),
                     Lieu.label.like("%{}%".format(motclef)),
+                    Lettre.date_norm.like("%{}%".format(date)),
+                    Lettre.date_label.like("%{}%".format(date)),
+                    Correspondant.nom.like("%{}%".format(person)),
+                    Correspondant.prenom.like("%{}%".format(person)),
+                    Lieu.label.like("%{}%".format(lieu)),
                 )
             ).order_by(Lettre.titre.asc()).all()
 
 
-        return render_template("pages/search.html", results=results, titre=titre, keyword = motclef, date=date)
+        return render_template("pages/search.html", results=results, titre=titre, keyword = motclef, date=date, person = person, lieu =lieu)
 
-@app.route("/results")
-def results():
-    return render_template("pages/results.html")
 
 @app.route("/contact")
 def contact():
@@ -96,3 +104,16 @@ def contact():
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('errors/404.html'), 404
+
+
+# Ici, nous utilisons le module context_processor que nous avons importé plus haut. Il nous sert à mettre toujours
+# à jour l'année qui se trouve dans le footer de nos pages, au niveau des crédits.
+# Puis nous définissons une fonction appelée inject_now et qui nous permet d'injecter le temps courant.
+
+# Here, we use the context_processor module that we previously imported. We use it so that the year in
+# the footer of the pages next to credits is always up to date.
+# Then we define a function called  inject_now which allow us to inject the current time.
+
+@app.context_processor
+def inject_now():
+    return {'now' : datetime.now()}

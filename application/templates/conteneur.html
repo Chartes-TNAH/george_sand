@@ -69,7 +69,13 @@
 <footer class="page-footer font-small blue">
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2019 Crédits :
+    <!-- Ici nous appelons la variable now de la fonction définie dans le fichier routes et nous lui ajoutons l'élément
+     year afin de n'afficher que l'année -->
+
+    <!-- Here we call the variable now from the function that we previously defined in the routes file. Then we add
+    the element year so that it only display the year and not the hours -->
+
+  <div class="footer-copyright text-center py-3">© {{ now.year }} - Crédits :
     <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
       | <a href="http://www.chartes.psl.eu/fr/cursus/master-technologies-numeriques-appliquees-histoire">Ecole Nationale des Chartes </a>
       | <a href="http://gallica.bnf.fr">Gallica</a>
