@@ -17,3 +17,6 @@ class Lettre(db.Model):
     vers_lieu=db.Column(db.Text, db.ForeignKey('lieu.lieu_id'))
     correspondant = db.relationship("Correspondant", back_populates="lettre")
     lieu = db.relationship("Lieu", back_populates="lettre")
+
+
+

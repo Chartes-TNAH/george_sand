@@ -55,7 +55,9 @@ Nous avons utilisé url_for () pour faire des liens vers chacune de nos lettres.
        <b> <h5>Nous vous proposons aujourd'hui la lecture de la <b>{{ correspondances | random }}</b> ! </h5></b></div>
 
 <hr>
-<h3>Souhaitez-vous rechercher une lettre en saisissant une date ?</h3>
+
+<!-- Ici nous avons installé plusieurs barres de recherches pour chercher des champs spécifiques -->
+<h4>Souhaitez-vous rechercher une lettre en saisissant une date ?</h4>
 <form class="form-inline my-2 my-lg-0" action="{{url_for("search")}}" method="GET">
       <input class="form-control mr-sm-2" type="search" name="date" type="text" placeholder="date" aria-label="Date">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
@@ -63,6 +65,21 @@ Nous avons utilisé url_for () pour faire des liens vers chacune de nos lettres.
     </form>
 <hr>
 
+<h4>Souhaitez-vous rechercher une lettre en saisissant un nom ?</h4>
+<form class="form-inline my-2 my-lg-0" action="{{url_for("search")}}" method="GET">
+      <input class="form-control mr-sm-2" type="search" name="person" type="text" placeholder="nom" aria-label="person">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
+ </button>
+    </form>
+
+<hr>
+<h4>Souhaitez-vous rechercher une lettre en saisissant une lieu de réception ?</h4>
+<form class="form-inline my-2 my-lg-0" action="{{url_for("search")}}" method="GET">
+      <input class="form-control mr-sm-2" type="search" name="lieu" type="text" placeholder="lieu" aria-label="Lieu">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
+ </button>
+    </form>
+<hr>
 </br>
 
 <img src="/static/pictures/GS_Gallica.png" class="rounded" alt="Responsive image" width="200px">
@@ -71,7 +88,7 @@ Nous avons utilisé url_for () pour faire des liens vers chacune de nos lettres.
 <hr>
 
 
-<h5>Les lettres 277 à 281 proviennent des volumes <a href="https://gallica.bnf.fr/ark:/12148/bpt6k206545v">III</a> et <a href="https://gallica.bnf.fr/ark:/12148/bpt6k2065480">VI</a> de<i> Correspondance : 1812-1876</i>, un recueil disponible en
+<h5>Les lettres 277 à 281 et 737 à 741 proviennent respectivement des volumes <a href="https://gallica.bnf.fr/ark:/12148/bpt6k206545v">III</a> et <a href="https://gallica.bnf.fr/ark:/12148/bpt6k2065480">VI</a> de<i> Correspondance : 1812-1876</i>, une oeuvre disponible en
         ligne sur le site de Gallica, bibliothèque numérique de la Bibliothèque Nationale de France.  </h5>
     {% else %}
     La base de données est en cours de constitution
