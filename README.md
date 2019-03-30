@@ -1,6 +1,6 @@
 # george_sand
 
-Application : Correspondances de George Sand, 1840-1870
+Application : Correspondances de George Sand, 1848-1870
 ===
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
