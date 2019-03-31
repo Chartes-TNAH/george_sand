@@ -1,10 +1,10 @@
 {% extends "conteneur.html" %}
-
-{% block titre %}
-
 <!-- Cette page contient le code qui permet d'afficher chacune des lettres selon la structure que nous avons définie -->
 
 <!-- This page contains a code to display each letter with a specific structure -->
+{% block titre %}
+
+
         {%if correspondance %} | Lettre : {{correspondance.titre}} {% endif %}
 {% endblock %}
 
