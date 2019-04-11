@@ -1,14 +1,12 @@
-#
-from flask import render_template, request, url_for
+from flask import render_template, request
+
 # Nous avons ici importé url_for pour créer des URL qui renvoient à nos fonctions et à nos pages HTML
 # Import url_for in order to create URLS sending back functions for the HTML pages
 from .main import app
-from .models.lettres import Lettre
-from .models.lieux import Lieu
-from .models.correspondants import Correspondant
-from sqlalchemy import and_, or_
+from application.models.donnees import Correspondant, Lettre, Lieu
+from sqlalchemy import or_
+from sqlalchemy.orm import aliased
 from datetime import datetime
-import random
 
 # Nous avons défini une route en précédant une fonction de '@app.route'
 # Chaque route renvoie à une page .html (voir dossier templates/pages)
@@ -70,7 +68,10 @@ def search():
         titre = "Recherche"
 
         if motclef or date or person or lieu :
-            results = Lettre.query.outerjoin(Correspondant).outerjoin(Lieu).filter(
+            expe = aliased(Lieu)
+            depuis = aliased(Lieu)
+            results = Lettre.query.outerjoin(Correspondant)\
+                .outerjoin(depuis, depuis.lieu_id == Lettre.depuis_lieu).outerjoin(expe, expe.lieu_id == Lettre.vers_lieu).filter(
                 or_(
                     Lettre.titre.like("%{}%".format(motclef)),
                     Lettre.date_label.like("{}".format(motclef)),
@@ -78,15 +79,16 @@ def search():
                     Lettre.date_norm.like("%{}%".format(motclef)),
                     Correspondant.nom.like("%{}%".format(motclef)),
                     Correspondant.prenom.like("%{}%".format(motclef)),
-                    Lieu.label.like("%{}%".format(motclef)),
                     Lettre.date_norm.like("%{}%".format(date)),
                     Lettre.date_label.like("%{}%".format(date)),
                     Correspondant.nom.like("%{}%".format(person)),
                     Correspondant.prenom.like("%{}%".format(person)),
-                    Lieu.label.like("%{}%".format(lieu)),
+                    expe.label.like("%{}%".format(lieu)),
+                    depuis.label.like("%{}%".format(lieu)),
+                    expe.label.like("%{}%".format(motclef)),
+                    depuis.label.like("%{}%".format(motclef))
                 )
             ).order_by(Lettre.titre.asc()).all()
-
 
         return render_template("pages/search.html", results=results, titre=titre, keyword = motclef, date=date, person = person, lieu =lieu)
 

@@ -64,7 +64,7 @@ db = SQLAlchemy(app)
 # After some manipulations we were able to create our database
 
 # import the different sqlalchemy models
-from application.models import lettres, correspondants, lieux
+from application.models.donnees import Lettre, Lieu, Correspondant
 
 # La ligne de code suivante nous a permis de remplir notre base de données à partir d'une base vide.
 
