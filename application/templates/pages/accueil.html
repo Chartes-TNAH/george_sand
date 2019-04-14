@@ -85,7 +85,7 @@ Nous avons utilisé url_for () pour faire des liens vers chacune de nos lettres.
 <hr>
 </br>
 
-<img src="/static/pictures/GS_Gallica.png" class="rounded" alt="Responsive image" width="200px">
+<img src="{{ url_for("static", filename="pictures/GS_Gallica.png" }}" class="rounded" alt="Responsive image" width="200px">
         <p>George Sand, portrait par Delacroix, Collection M. Buloz, dans le Monde Illustré du 16 août 1884, BNF, Gallica (<a href="https://gallica.bnf.fr/ark:/12148/bpt6k6447570t/f4.item">source</a>) </p>
 
 <hr>

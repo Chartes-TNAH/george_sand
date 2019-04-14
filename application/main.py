@@ -68,7 +68,7 @@ from application.models.donnees import Lettre, Lieu, Correspondant
 
 # La ligne de code suivante nous a permis de remplir notre base de données à partir d'une base vide.
 
-db.create_all()
+#db.create_all()
 
 
 # import the different routes

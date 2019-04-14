@@ -18,8 +18,6 @@
          {% include "partials/metadata.html" %}
 
         <style type="text/css">
-               body { background-image:url('') !important;
-                } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
                 a{color:#AFAFAF;}
 
 </style>
@@ -56,7 +54,7 @@
 
 <form class="form-inline my-2 my-lg-0" action="{{url_for("search")}}" method="GET">
       <input class="form-control mr-sm-2" type="search" name="keyword" type="text" placeholder="Faire une recherche" aria-label="Search">
-      <button class="btn btn-secondary btn-lg" type="submit"><img src="/static/pictures/GS_icone.jpg" class="rounded" alt="Responsive image" width="60px">
+      <button class="btn btn-secondary btn-lg" type="submit"><img src="{{url_for("static", filename="pictures/GS_icone.jpg")}}" class="rounded" alt="Responsive image" width="60px">
  </button>
     </form>
     </nav>
