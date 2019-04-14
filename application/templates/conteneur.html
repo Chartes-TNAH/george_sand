@@ -35,9 +35,9 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-    <ul><li><a href="/">Accueil</a></li></ul>
-    <ul><li><a href="/about">A propos</a></li></ul>
-        <ul><li><a href="/contact">Contact</a></li></ul>
+    <ul><li><a href="{{ url_for('accueil') }}">Accueil</a></li></ul>
+    <ul><li><a href="{{ url_for('about') }}">A propos</a></li></ul>
+        <ul><li><a href="{{ url_for('contact') }}">Contact</a></li></ul>
 
         <!-- Les lignes suivantes permettent de créer des espaces entre le lien contact et le cadre recherche -->
 
